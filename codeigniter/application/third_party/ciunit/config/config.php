@@ -15,7 +15,7 @@ if (! defined('BASEPATH'))
  | By default CIUnit will look for a folder "tests" under the application folder.
  */
 
-$config['tests_path'] = APPPATH .'tests/';
+$config['tests_path'] = APPPATH .'tests/students_tests';
 
 /*
  |--------------------------------------------------------------------------

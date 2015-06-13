@@ -69,14 +69,14 @@
         <!-- SEARCH -->
         <div class="navbar-search-container">
             <div class="col-sm-12">
-                <form id="navbar-search" class="navbar-form navbar-right" role="search">
+                <div id="navbar-search" class="navbar-form navbar-right" role="search">
                     <div class="input-group">
                         <input id="student-search-input" type="text" class="form-control" placeholder="Search a student...">
                         <span class="input-group-btn">
                            <button id="student-search" type="submit" class="btn btn-default"><i class="fa fa-search no-margin-right"></i></button>
                          </span>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>

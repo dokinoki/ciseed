@@ -1,9 +1,11 @@
 <?php
+    //CI autoloader does not support interfaces :(
+    require_once APPPATH . 'interfaces/controller_interface.php';
 
     /**
      * Class Student_controller
      */
-    class Student_controller extends CI_Controller {
+    class Student_controller extends CI_Controller implements controller_interface {
 
         /**
          * Index Page for this controller.

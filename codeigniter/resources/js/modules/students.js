@@ -32,9 +32,24 @@ define('students', ['jquery', 'app', 'bootstrap'],
                  * Search for a specific student
                  */
                 $('body').on('click', '#student-search', function(){
-                    self.search();
+                    self.search(
+                        $('#student-search-input').val()
+                    );
                 });
 
+                /**
+                 * Search for a specific student when doing "enter" on the search bar
+                 */
+                $('body').on('keypress', '#student-search-input', function (e) {
+                    var key = e.which;
+
+                    //Enter key
+                    if(key == 13){
+                        self.search(
+                            $('#student-search-input').val()
+                        );
+                    }
+                });
 
             },
 
@@ -76,7 +91,7 @@ define('students', ['jquery', 'app', 'bootstrap'],
             /**
              * Search a student
              */
-            search: function(){
+            search: function(strQuery){
                 var self = this;
 
                 app.toggleLoadingOverlay();
@@ -85,7 +100,7 @@ define('students', ['jquery', 'app', 'bootstrap'],
                         controller: module,
                         method: 'search',
                         data: {
-                            username: $('#student-search-input').val()
+                            username: strQuery
                         }
                     },
                     function(objData){

@@ -128,8 +128,10 @@ $autoload['model'] = array();
 |
 */
 
-$autoload['interface'] = array('model_interface');
-
+$autoload['interface'] = array(
+    'model_interface',
+    'controller_interface'
+);
 
 /* End of file autoload.php */
 /* Location: ./application/config/autoload.php */

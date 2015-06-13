@@ -11,4 +11,9 @@
          * Always load the constructor
          */
         public function __construct();
+
+        /**
+         * Always have a get method
+         */
+        public function get();
     }

@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'https://www.letsdofunshit.today/test';
+$config['base_url']	= 'https://www.letsdofunshit.today/test/';
 
 /*
 |--------------------------------------------------------------------------

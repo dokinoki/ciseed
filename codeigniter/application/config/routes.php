@@ -44,5 +44,9 @@ $route['404_override'] = '';
 $route['ciunit'] = "ciunit_controller/index";
 $route['ciunit/(:any)'] = "ciunit_controller/index/$1";
 
+//Add our custom route for easier JS
+$route['student/(:any)'] = "student_controller/$1";
+$route['students/(:any)'] = "students_controller/$1";
+
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

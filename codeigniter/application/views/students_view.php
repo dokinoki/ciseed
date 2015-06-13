@@ -9,15 +9,95 @@
 
     <title>Guillermo's Student Management App</title>
 
-    <!-- NOTE: Loading from global CDN speeds up loading and increases the probabilities that the client already has the file cached in the browser.
-               We also force https to maintain security
+    <!--
+    NOTE: Loading from global CDN speeds up loading and increases the probabilities that the client already has the file cached in the browser.
+          We also force https to maintain security
     -->
-    <script type="text/javascript" data-main="./assets/js/main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.17/require.min.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script type="text/javascript" data-main="./resources/js/main.min" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.17/require.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="./resources/css/style.min.css">
 </head>
+
 <body>
-    <div id="body">Hello! View Test</div>
+    <!--
+    NOTE: The header should go in another file
+    -->
+    <!-- NAVBAR -->
+    <div id="navbar-container">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-student">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <!-- LOGO -->
+                    <div class="navbar-brand txt_white" href="#">
+                        <section class="cubetainer">
+                            <div id="cube">
+                                <figure class="front"><i class="fa fa-globe"></i></figure>
+                                <figure class="back"><i class="fa fa-leaf"></i></figure>
+                                <figure class="right"><i class="fa fa-magic"></i></figure>
+                                <figure class="left"><i class="fa fa-cogs"></i></figure>
+                                <figure class="top"><i class="fa fa-info"></i></figure>
+                                <figure class="bottom"><i class="fa fa-lightbulb-o"></i></figure>
+                            </div>
+                        </section>
+                        <div class="navbar-brand-title">Student Management Systems</div>
+                    </div>
+                </div>
+
+                <!-- MENU -->
+                <div class="collapse navbar-collapse" id="navbar-student">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle txt_white" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cogs"></i>Settings <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a id="student-add" href="#"><i class="fa fa-user-plus"></i>Add a new user</a></li>
+                                <li><a id="student-chaos" href="#"><i class="fa fa-futbol-o"></i>Seed chaos</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- SEARCH -->
+        <div class="navbar-search-container">
+            <div class="col-sm-12">
+                <form id="navbar-search" class="navbar-form navbar-right" role="search">
+                    <div class="input-group">
+                        <input id="student-search-input" type="text" class="form-control" placeholder="Search a student...">
+                        <span class="input-group-btn">
+                           <button id="student-search" type="submit" class="btn btn-default"><i class="fa fa-search no-margin-right"></i></button>
+                         </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="container students-body">
+        <div class="row">
+            <!-- We are going to load our students table here -->
+            <div id="students-table-placeholder"></div>
+        </div>
+
+        <!-- ERRORS -->
+        <div class="row">
+            <!-- The search result ended with no results -->
+            <div id="students-no-result" class="alert alert-warning text-center" role="alert" style="display: none"><i class="fa fa-exclamation-triangle"></i>Oh no! We couldn't find the student or there are no students yet</div>
+        </div>
+    </div>
+
+    <!-- LOADING OVERLAY, Lets be nice to the user, loading stuff is not fun... -->
+    <div class="overlay">
+        <img class="loading" src="./resources/img/loading.gif">
+    </div>
 </body>
 </html>

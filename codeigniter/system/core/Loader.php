@@ -310,6 +310,24 @@ class CI_Loader {
 		show_error('Unable to locate the model you have specified: '.$model);
 	}
 
+    // --------------------------------------------------------------------
+
+    /**
+     * Interface Loader
+     *
+     * @param array $arrInterfaces The names of the interfaces to be loaded as specified in autoload.php
+     */
+    public function interfac($arrInterfaces) {
+        if(!is_array($arrInterfaces)) return show_error('Missing interface loader');
+
+        foreach($arrInterfaces as $strInterface){
+            $strPath = APPPATH . 'interfaces/' . $strInterface . '.php';
+            if(is_readable($strPath)){
+                require_once $strPath;
+            } else show_error('File ' . $strPath . '.php is not readable');
+        }
+    }
+
 	// --------------------------------------------------------------------
 
 	/**
@@ -1184,6 +1202,12 @@ class CI_Loader {
 		{
 			$this->model($autoload['model']);
 		}
+
+        // Autoload interfaces
+        if (isset($autoload['interface']))
+        {
+            $this->interfac($autoload['interface']);
+        }
 	}
 
 	// --------------------------------------------------------------------

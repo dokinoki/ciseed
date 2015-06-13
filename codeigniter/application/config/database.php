@@ -49,10 +49,12 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = getenv('IP');
-$db['default']['username'] = getenv('C9_USER');
-$db['default']['password'] = '';
-$db['default']['database'] = 'c9';
-$db['default']['dbdriver'] = 'mysql';
+$db['default']['username'] = $_SERVER['DATABASE_USER'];
+$db['default']['password'] = $_SERVER['DATABASE_PASSWORD'];
+$db['default']['database'] = 'ciseed';
+
+//GB: Changed driver to mysqli (PDO) to avoid SQL injection
+$db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
 $db['default']['db_debug'] = TRUE;
@@ -63,6 +65,23 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
+
+//Testing DB
+$db['testing']['hostname'] = 'localhost';
+$db['testing']['username'] = $_SERVER['DATABASE_USER'];
+$db['testing']['password'] = $_SERVER['DATABASE_PASSWORD'];
+$db['testing']['database'] = 'ciseed_test';
+$db['testing']['dbdriver'] = 'mysqli';
+$db['testing']['dbprefix'] = '';
+$db['testing']['pconnect'] = TRUE;
+$db['testing']['db_debug'] = TRUE;
+$db['testing']['cache_on'] = FALSE;
+$db['testing']['cachedir'] = '';
+$db['testing']['char_set'] = 'utf8';
+$db['testing']['dbcollat'] = 'utf8_general_ci';
+$db['testing']['swap_pre'] = '';
+$db['testing']['autoinit'] = TRUE;
+$db['testing']['stricton'] = FALSE;
 
 
 /* End of file database.php */

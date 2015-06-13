@@ -1,0 +1,166 @@
+/**
+* header.less, css methods for the header
+*/
+
+@import 'variables';
+@import 'animations';
+
+/* NAVBAR
+ Thanks! http://www.colorzilla.com/gradient-editor/
+*/
+.navbar{
+  padding: 20px;
+  background: @color_blue; /* Old browsers */
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBmNDFiMyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2MGFiZjgiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNDA5NmVlIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+  background: -moz-linear-gradient(left,  #0f41b3 0%, #60abf8 100%, #4096ee 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#0f41b3), color-stop(100%,#60abf8), color-stop(100%,#4096ee)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  #0f41b3 0%,#60abf8 100%,#4096ee 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  #0f41b3 0%,#60abf8 100%,#4096ee 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  #0f41b3 0%,#60abf8 100%,#4096ee 100%); /* IE10+ */
+  background: linear-gradient(to right,  #0f41b3 0%,#60abf8 100%,#4096ee 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0f41b3', endColorstr='#4096ee',GradientType=1 ); /* IE6-8 */
+  border: none;
+  border-radius: 0px;
+  box-shadow: 0px 2px 2px grey;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 3;
+}
+
+.navbar-brand{
+  margin-top: -10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.navbar-brand-title{
+  margin: -40px 0 0 70px;
+  font-weight: 200;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.navbar-search-container{
+  width: 100%;
+  background: #F8F8F8;
+  top:90px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.navbar-search-container > div{
+  padding: 5px 40px;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
+  background: transparent;
+  opacity: 0.8;
+}
+
+.icon-bar{
+  background-color: white !important;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px){
+  .dropdown-menu li a{color:@color_white !important}
+  .navbar-brand-title{
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+}
+
+/* IPHONE */
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px)
+and (orientation : portrait) {
+  .navbar-brand-title{
+    font-size: 14px;
+    letter-spacing: 0px;
+  }
+}
+
+/* 3D LOGO
+ Thanks! https://desandro.github.io/3dtransforms/docs/cube.html
+*/
+.cubetainer {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  -webkit-perspective: 1000px; /* Chrome, Safari, Opera */
+  perspective: 1000px;
+}
+
+#cube {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  animation: rotate @animation-time infinite;
+  -webkit-animation-name: rotate; /* Chrome, Safari, Opera */
+  -webkit-animation-duration: @animation-time; /* Chrome, Safari, Opera */
+  -webkit-animation-iteration-count: infinite;/* Chrome, Safari, Opera */
+}
+
+#cube figure {
+  display: block;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  padding-left: 7px;
+}
+
+#cube .front  {
+  background: rgba(200, 244, 55, 0.7);
+  transform: rotateX(   90deg ) translateZ( 25px );
+  -webkit-transform: rotateX(   90deg ) translateZ( 25px );
+  -moz-transform: rotateX(   90deg ) translateZ( 25px );
+  -o-transform: rotateX(   90deg ) translateZ( 25px );
+}
+#cube .back   {
+  background: rgba(99, 125, 99, 0.7);
+  transform: rotateX( 180deg ) translateZ( 25px );
+  -webkit-transform: rotateX( 180deg ) translateZ( 25px );
+  -moz-transform: rotateX( -180deg ) translateZ( 25px );
+  -o-transform: rotateX( -180deg ) translateZ( 25px );
+}
+#cube .right  {
+  background: rgba(123, 44, 45, 0.7);
+  transform: rotateY(  90deg ) translateZ( 25px );
+  -webkit-transform: rotateY( 90deg ) translateZ( 25px );
+  -moz-transform: rotateY( 90deg ) translateZ( 25px );
+  -o-transform: rotateY( 90deg ) translateZ( 25px );
+}
+#cube .left   {
+  background: rgba(255, 44, 55, 0.7);
+  transform: rotateY( -90deg ) translateZ( 25px );
+  -webkit-transform: rotateY( -90deg ) translateZ( 25px );
+  -moz-transform: rotateY( -90deg ) translateZ( 25px );
+  -o-transform: rotateY( -90deg ) translateZ( 25px );
+}
+#cube .top    {
+  background: rgba(25, 144, 55, 0.7);
+  transform: rotateX(  90deg ) translateZ( 25px );
+  -webkit-transform: rotateX( 0deg ) translateZ( 25px );
+  -moz-transform: rotateX( -0deg ) translateZ( 25px );
+  -o-transform: rotateX( -0deg ) translateZ( 25px );
+}
+#cube .bottom {
+  background: rgba(23, 44, 255, 0.7);
+  transform: rotateX( -90deg ) translateZ( 25px );
+  -webkit-transform: rotateX( -90deg ) translateZ( 25px );
+  -moz-transform: rotateX( -90deg ) translateZ( 25px );
+  -o-transform: rotateX( -90deg ) translateZ( 25px );
+}

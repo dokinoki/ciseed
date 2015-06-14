@@ -19,9 +19,9 @@ Project Description
 Original Project
 ================
 
-    - [CodeIgniter 2.2.0](https://ellislab.com/asset/ci_download_files/CodeIgniter_2.2.0.zip)
-    - [CIUnit 1.2.1](https://github.com/destructivecreator/ciunit-framework)
-    - https://github.com/agop/ciunit-framework/archive/master.zip
+    - @link: [CodeIgniter 2.2.0](https://ellislab.com/asset/ci_download_files/CodeIgniter_2.2.0.zip)
+    - @link: [CIUnit 1.2.1](https://github.com/destructivecreator/ciunit-framework)
+    - @link: https://github.com/agop/ciunit-framework/archive/master.zip
 
 Project Structure Changes
 =========================
@@ -41,6 +41,11 @@ Server
     - interfaces/* Provides interface templates for models & controllers to follow
     - libraries/* Provides classes that can be reused in all models & controllers
 
+Testing
+-------
+
+    - application/tests/student_tests/* Directory for test classes
+
 Considerations
 ==============
 
@@ -51,6 +56,7 @@ Tests
     - Installed ciunit with composer https://bitbucket.org/kenjis/my-ciunit
     - Modify core codeigniter files as directed by ciunit installation http://www.cuelogic.com/blog/getting-started-with-phpunit-codeigniter/
     - Prepare test database http://d.hatena.ne.jp/Kenji_s/20120117/1326763908
+    - **Tests are located here: @link: https://www.letsdofunshit.today/test/ciunit/**
 
 Speed
 -----
@@ -73,21 +79,21 @@ Security
 Live Version
 -----------
 
-    - Located at www.letsdofunshit.today/test
+    - **Located here @link: www.letsdofunshit.today/test**
 
 Todos
 =====
 
     - Finish unit testing
-    - Finish setting up phpunit
+    - Rewrite ciunit to improve UI and allow subdirectories then pull request @link: https://github.com/kitsunde/CIUnit
 
 Credits
 =======
 
-    - loading.gif http://preloaders.net/en/science
-    - header gradient effect http://www.colorzilla.com/gradient-editor/
-    - CSS3 cube https://desandro.github.io/3dtransforms/docs/cube.html
-    - overlay pattern http://www.patternify.com
+    - loading.gif @link: http://preloaders.net/en/science
+    - header gradient effect @link: http://www.colorzilla.com/gradient-editor/
+    - CSS3 cube @link: https://desandro.github.io/3dtransforms/docs/cube.html
+    - overlay pattern @link: http://www.patternify.com
 
 Author
 ======

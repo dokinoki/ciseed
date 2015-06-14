@@ -24,8 +24,8 @@
          * @param $strHash string
          * @return bool
          */
-        public static function compare($strPassword, $strHash){
-            return self::encrypt($strPassword) === $strHash ? true : false;
+        public static function verify($strPassword, $strHash){
+            return password_verify($strPassword, $strHash);
         }
     }
 

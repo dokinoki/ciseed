@@ -21,6 +21,13 @@
          */
 
         /**
+         * Are we running unit tests?
+         *
+         * @var bool
+         */
+        private $testing = false;
+
+        /**
          * Load the students model
          * Since students depends on student, we also load the student_model
          */
@@ -28,6 +35,15 @@
             parent::__construct();
             $this->load->model('student_model');
             $this->load->model('students_model');
+        }
+
+        /**
+         * Testing bool setter
+         *
+         * @param $boolTesting
+         */
+        public function _setTesting($boolTesting){
+            $this->testing = $boolTesting;
         }
 
         /**
@@ -41,8 +57,9 @@
          * Get the list of students
          */
         public function get(){
-            responses_class::sendRequest(
-                $this->students_model->get()
+            return responses_class::sendRequest(
+                $this->students_model->get(),
+                $this->testing
             );
         }
 
@@ -69,7 +86,7 @@
             }
 
             //Send the new list of students
-            responses_class::sendRequest($arrResponse);
+            return responses_class::sendRequest($arrResponse, $this->testing);
         }
 
         /**
@@ -83,7 +100,7 @@
             $arrResponse = $this->students_model->search($arrRequest);
 
             //Then send it
-            responses_class::sendRequest($arrResponse);
+            return responses_class::sendRequest($arrResponse, $this->testing);
         }
     }
 

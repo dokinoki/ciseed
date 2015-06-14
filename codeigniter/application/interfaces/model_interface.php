@@ -13,6 +13,13 @@
          */
         public function __construct();
 
+        /*
+         * Always load the testing setter
+         *
+         * @param $boolTesting bool (true if called from a test)
+         */
+        public function _setTesting($boolTesting);
+
         /**
          * Get database data
          *

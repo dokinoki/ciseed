@@ -21,11 +21,27 @@
          */
 
         /**
+         * Are we running unit tests?
+         *
+         * @var bool
+         */
+        private $testing = false;
+
+        /**
          * Load the student model
          */
         function __construct(){
             parent::__construct();
             $this->load->model('student_model');
+        }
+
+        /**
+         * Testing bool setter
+         *
+         * @param $boolTesting
+         */
+        public function _setTesting($boolTesting){
+            $this->testing = $boolTesting;
         }
 
         /**
@@ -38,7 +54,7 @@
             //Pass the data to the model & get the response data
             $arrResponse = $this->student_model->get($arrRequest['id']);
 
-            responses_class::sendRequest($arrResponse);
+            return responses_class::sendRequest($arrResponse, $this->testing);
         }
 
         /**
@@ -52,7 +68,7 @@
                 )
             );
 
-            responses_class::sendRequest($arrResponse);
+            return responses_class::sendRequest($arrResponse, $this->testing);
         }
 
         /**
@@ -65,7 +81,7 @@
             //Pass the data to the model & get the response data
             $arrResponse = $this->student_model->update($arrRequest);
 
-            responses_class::sendRequest($arrResponse);
+            return responses_class::sendRequest($arrResponse, $this->testing);
         }
 
         /**
@@ -78,7 +94,7 @@
             //Pass the data to the model & get the response data
             $arrResponse = array('ID' => $this->student_model->erase($arrRequest['id']));
 
-            responses_class::sendRequest($arrResponse);
+            return responses_class::sendRequest($arrResponse, $this->testing);
         }
 
         /**
@@ -96,7 +112,7 @@
                 )
             );
 
-            responses_class::sendRequest($arrResponse);
+            return responses_class::sendRequest($arrResponse, $this->testing);
         }
     }
 

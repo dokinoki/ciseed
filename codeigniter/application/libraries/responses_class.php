@@ -24,11 +24,17 @@
          * Send a request
          *
          * @param array $arrData The array with the data we want to send
-         * @return void
+         * @param bool $boolTesting Is this a test? If it is we return instead of echoing the data
+         * @return string
          */
-        public static function sendRequest($arrData){
-            self::setHeaders();
-            echo tools_class::jsonEncode($arrData);
+        public static function sendRequest($arrData, $boolTesting = false){
+            //This is not a test
+            if(!$boolTesting){
+                self::setHeaders();
+                echo tools_class::jsonEncode($arrData);
+            }
+
+            return tools_class::jsonEncode($arrData);
         }
 
         /**

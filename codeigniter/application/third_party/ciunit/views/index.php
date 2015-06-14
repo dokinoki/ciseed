@@ -8,7 +8,8 @@
   <meta name="author" content="">
   
   <!-- Le styles -->
-  <link type="text/css" rel="stylesheet" href="<?php echo base_url($resources_path . "css/bootstrap.css") ; ?>">
+  <link type="text/css" rel="stylesheet" href="<?php echo base_url($resources_path . "css/ciunit.min.css") ; ?>">
+  <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css">
   
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
@@ -19,7 +20,7 @@
 <body>
   <!-- NAVBAR -->
   <div class="navbar-wrapper">
-    <div class="navbar navbar-inverse">
+    <div class="navbar navbar-default">
       <div class="navbar-inner">
         <?php echo anchor('ciunit', 'CIUnit Framework ' . CIUNIT_VERSION, array('class' => 'brand')); ?>
       </div>
@@ -32,23 +33,38 @@
   <div class="container">
     <div class="row-fluid">
       <div class="span3">
-        <ul class="nav nav-list">
-          <li class="nav-header"><i class="icon-folder-open"></i>&nbsp;Tests</li>
-          <?php
-          
-          sort($test_tree);
-          
-          foreach ($test_tree as $branch => $leaf)
-          {
-            echo '<li class="'
-                  . ( ( $this->uri->segment(2) == $leaf ) ? 'active' : '' )
-                  . '">'
-                  . anchor('ciunit/' . $leaf, $leaf)
-                  . "</li>";
-          }
 
-          ?>
-        </ul>
+          <div class="panel panel-primary">
+              <div class="panel-heading">Available tests</div>
+              <table class="table">
+                  <thead>
+                    <tr>
+                        <td class="text-center">#</td>
+                        <td>Name</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+<?php
+                      sort($test_tree);
+                      $numCounter = 0;
+
+                      foreach ($test_tree as $branch => $leaf)
+                      {
+                          echo '<tr class="' . ( ( $this->uri->segment(2) == $leaf ) ? 'active' : '' ) . '">'
+                              .     '<td class="text-center">'
+                              .         $numCounter
+                              .     '</td>'
+                              .     '<td>'
+                              .         anchor('ciunit/' . $leaf, $leaf)
+                              .     '</td>'
+                              .'</tr>';
+
+                          $numCounter++;
+                      }
+?>
+                  </tbody>
+              </table>
+          </div>
       </div>
       
       <div class="span9">
@@ -87,8 +103,11 @@
         
         <div class="">
           <span class="pull-right">
-            <button class="btn btn-small btn-inverse pull-right" type="button" onClick="document.location.reload(true)">
+            <button class="btn btn-small btn-primary pull-right" type="button" onClick="document.location.reload(true)">
               <i class="icon-refresh icon-white"></i>&nbsp;Run again
+            </button>
+            <button class="btn btn-small btn-default margin-right-10" onClick="window.location.href = '../';">
+                Exit
             </button>
           </span>
           

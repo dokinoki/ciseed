@@ -9,7 +9,7 @@
  Target Server Version : 50542
  File Encoding         : utf-8
 
- Date: 06/12/2015 23:56:12 PM
+ Date: 06/14/2015 12:16:23 PM
 */
 
 SET NAMES utf8;
@@ -20,7 +20,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `usr_users`;
 CREATE TABLE `usr_users` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
   `user_username` varchar(128) NOT NULL,
   `user_password` varchar(256) NOT NULL,
   `user_hash` varchar(256) NOT NULL,

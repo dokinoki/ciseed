@@ -5,13 +5,14 @@
     /**
      * Class StudentControllerTest
      *
-     * @todo: echos in the controller mess everything, think of fix
+     * Test the controllers/student_controller.php file
      */
     class StudentControllerTest extends CIUnit_Framework_TestCase{
         private $student_controler;
 
         public function __construct(){
             $this->student_controler = new Student_controller();
+            $this->student_controler->_setTesting(true);
         }
 
         /**
@@ -19,11 +20,10 @@
          */
         public function testGet(){
             //get JSON string
-            $_POST = array('id' => 0);
             $strResponse = $this->student_controler->get();
 
-            //Parse the response
-            $arrResponse = tools_class::jsonDecode($strResponse);
+            //Parse the response (not using toolsClass::jsonDecode to modularize)
+            $arrResponse = json_decode($strResponse, true);
 
             //If its an array we are good
             $this->assertTrue(is_array($arrResponse));
@@ -34,11 +34,10 @@
          */
         public function testInsert(){
             //get JSON string
-            $_POST = array('id' => 0);
             $strResponse = $this->student_controler->insert();
 
             //Parse the response
-            $arrResponse = tools_class::jsonDecode($strResponse);
+            $arrResponse = json_decode($strResponse, true);
 
             //If its an array we are good
             $this->assertTrue(is_array($arrResponse));
@@ -49,26 +48,10 @@
          */
         public function testUpdate(){
             //get JSON string
-            $_POST = array('id' => 0);
             $strResponse = $this->student_controler->update();
 
             //Parse the response
-            $arrResponse = tools_class::jsonDecode($strResponse);
-
-            //If its an array we are good
-            $this->assertTrue(is_array($arrResponse));
-        }
-
-        /**
-         * Test erasing data
-         */
-        public function testErase(){
-            //get JSON string
-            $_POST = array('id' => 0);
-            $strResponse = $this->student_controler->erase();
-
-            //Parse the response
-            $arrResponse = tools_class::jsonDecode($strResponse);
+            $arrResponse = json_decode($strResponse, true);
 
             //If its an array we are good
             $this->assertTrue(is_array($arrResponse));
@@ -79,11 +62,24 @@
          */
         public function testChaos(){
             //get JSON string
-            $_POST = array('id' => 0);
             $strResponse = $this->student_controler->chaos();
 
             //Parse the response
-            $arrResponse = tools_class::jsonDecode($strResponse);
+            $arrResponse = json_decode($strResponse, true);
+
+            //If its an array we are good
+            $this->assertTrue(is_array($arrResponse));
+        }
+
+        /**
+         * Test erasing data
+         */
+        public function testErase(){
+            //get JSON string
+            $strResponse = $this->student_controler->erase();
+
+            //Parse the response
+            $arrResponse = json_decode($strResponse, true);
 
             //If its an array we are good
             $this->assertTrue(is_array($arrResponse));

@@ -1,4 +1,6 @@
 <?php
+    //Solves a problem with autoloading during testing
+    require_once BASEPATH . 'core/Model.php';
 
     /**
      * Class Student_model
@@ -7,8 +9,25 @@
      */
     class Student_model extends CI_Model implements model_interface{
 
+        /**
+         * Are we running unit tests?
+         *
+         * @var bool
+         */
+        private $testing = false;
+
         public function __construct (){
             parent::__construct();
+        }
+
+        /**
+         * Testing bool setter
+         *
+         * @param $boolTesting
+         */
+        public function _setTesting($boolTesting){
+            $this->testing = $boolTesting;
+            if($boolTesting) $this->db = $this->load->database('testing', true);
         }
 
         /**

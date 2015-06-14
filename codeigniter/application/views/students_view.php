@@ -59,6 +59,7 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li><a id="student-add" href="#"><i class="fa fa-user-plus"></i>Add a new user</a></li>
                                 <li><a id="student-chaos" href="#"><i class="fa fa-futbol-o"></i>Seed chaos</a></li>
+                                <li><a id="student-testing" href="https://www.letsdofunshit.today/test/ciunit/"><i class="fa fa-rebel"></i>Test framework</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -99,5 +100,8 @@
     <div class="overlay">
         <img class="loading" src="./resources/img/loading.gif">
     </div>
+
+    <!-- INTRO OVERLAY -->
+    <div class="overlay-intro intro-1">Welcome</div>
 </body>
 </html>

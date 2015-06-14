@@ -23,6 +23,7 @@ requirejs.config({
 
         //Local application modules
         app: strModulesPath + "app.min",
+        intro: strModulesPath + "intro.min",
         start: strModulesPath + "start.min",
         header: strModulesPath + "header.min",
         student: strModulesPath + "student.min",

@@ -1,21 +1,29 @@
 <?php
 
+    /**
+     * Class toolsClassTest
+     *
+     * Tests for tools_class.php
+     */
     class toolsClassTest extends CIUnit_Framework_TestCase{
-        function __construct(){
-            $this->load->library('unit_test');
-        }
 
-        function jsonEncodeTest(){
+        /**
+         * Make sure the JSON encoding function works
+         */
+        public function testJsonEncode(){
             $arrData = array('marco' => 'polo');
             $strJson = tools_class::jsonEncode($arrData);
 
-            $this->unit->run($strJson, 'is_string');
+            $this->assertEquals('{"marco":"polo"}', $strJson);
         }
 
-        function jsonDecodeTest(){
+        /**
+         * Make sure JSON decoding works
+         */
+        public function testJsonDecode(){
             $strJson = '{"marco":"polo"}';
-            $strJson = tools_class::jsonDecode($strJson);
+            $arrData = tools_class::jsonDecode($strJson);
 
-            $this->unit->run($strJson, 'is_array');
+            $this->assertEquals(array('marco' => 'polo'), $arrData);
         }
     }

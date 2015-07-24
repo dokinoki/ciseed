@@ -3,7 +3,8 @@
  */
 var strAssetsPath = "./resources/js/",
     strModulesPath = strAssetsPath + "/modules/",
-    strLibsPath = strAssetsPath + "/libs/";
+    strLibsPath = strAssetsPath + "/libs/",
+    strTestsPath = strAssetsPath + "/tests/";
 
 /*
  * Load dependencies
@@ -18,20 +19,45 @@ requirejs.config({
         ],
         bootstrap: [
             "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min",
-            strLibsPath + "bootstrap/bootstrap-3.3.4.min"
+            strLibsPath + "bootstrap-3.3.4.min"
+        ],
+        jasmine: [
+            "https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.4/jasmine.min",
+            strLibsPath + "jasmine-2.3.4.min"
+        ],
+        'jasmine-boot': [
+            //"https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.4/boot.min",
+            strLibsPath + "jasmine-boot-2.3.4"
+        ],
+        'jasmine-html': [
+            "https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.4/jasmine-html.min",
+            strLibsPath + "jasmine-html-2.3.4.min"
         ],
 
         //Local application modules
         app: strModulesPath + "app.min",
+        test: strModulesPath + "test.min",
         intro: strModulesPath + "intro.min",
         start: strModulesPath + "start.min",
         header: strModulesPath + "header.min",
         student: strModulesPath + "student.min",
-        students: strModulesPath + "students.min"
+        students: strModulesPath + "students.min",
+
+        //Local tests
+        'header-test': strTestsPath + "header-test.min"
     },
 
     shim: {
-        //Party time
+        //Load non-AMD dependencies
+        'bootstrap': {
+            deps : ['jquery']
+        },
+        'jasmine-boot': {
+            deps : ['jasmine', 'jasmine-html']
+        },
+        'jasmine-html': {
+            deps : ['jasmine']
+        }
     }
 });
 

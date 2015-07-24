@@ -43,8 +43,6 @@
             //If its an array we are good
             $this->assertTrue(is_array($arrResponse));
 
-            print_r($arrResponse);
-
             //If we have a username we are good
             $this->assertTrue(is_numeric($arrResponse[0]['ID']));
         }

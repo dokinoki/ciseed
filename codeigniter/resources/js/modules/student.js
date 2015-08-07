@@ -121,6 +121,7 @@ define('student', ['jquery', 'app', 'bootstrap'],
                         //Change the row
                         $('tr[numid="' + objData[0].ID + '"] td:eq( 1 )').text(objData[0].USERNAME);
                         $('tr[numid="' + objData[0].ID + '"] td:eq( 2 )').text(objData[0].PASSWORD);
+                        $('tr[numid="' + objData[0].ID + '"] td:eq( 4 )').text(objData[0].MODIFIED);
                     }
                 );
             }

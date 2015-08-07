@@ -2,9 +2,9 @@
  * Config setup vars
  */
 var strAssetsPath = "./resources/js/",
-    strModulesPath = strAssetsPath + "/modules/",
-    strLibsPath = strAssetsPath + "/libs/",
-    strTestsPath = strAssetsPath + "/tests/";
+    strModulesPath = strAssetsPath + "modules/",
+    strLibsPath = strAssetsPath + "libs/",
+    strTestsPath = strAssetsPath + "tests/";
 
 /*
  * Load dependencies
@@ -33,6 +33,9 @@ requirejs.config({
             "https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.4/jasmine-html.min",
             strLibsPath + "jasmine-html-2.3.4.min"
         ],
+        'jasmine-jquery': [
+            strLibsPath + "jasmine-jquery.min"
+        ],
 
         //Local application modules
         app: strModulesPath + "app.min",
@@ -44,7 +47,7 @@ requirejs.config({
         students: strModulesPath + "students.min",
 
         //Local tests
-        'header-test': strTestsPath + "header-test.min"
+        'app-test': strTestsPath + "app-test.min"
     },
 
     shim: {
@@ -57,6 +60,9 @@ requirejs.config({
         },
         'jasmine-html': {
             deps : ['jasmine']
+        },
+        'jasmine-jquery': {
+            deps : ['jasmine-boot', 'jquery']
         }
     }
 });
